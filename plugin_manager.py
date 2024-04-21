@@ -1973,10 +1973,10 @@ class PluginManagerWindow(bui.Window):
             raise CategoryDoesNotExist(f"{category} does not exist.")
 
         if search_term:
-            plugins = filter(
+            plugins = list(filter(
                 lambda plugin: self.search_term_filterer(plugin, search_term),
                 category_plugins,
-            )
+            ))
         else:
             plugins = category_plugins
 
